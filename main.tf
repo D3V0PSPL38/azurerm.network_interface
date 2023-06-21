@@ -1,6 +1,4 @@
 ### [BEGIN] main.tf ###
-resource "time_static" "deploy_date" {}
-
 module "label" {
   source          = "github.com/D3V0PSPL38/terraform-context-label.git"
   enabled         = module.this.enabled
@@ -39,6 +37,12 @@ resource "azurerm_network_interface" "this" {
       public_ip_address_id                               = var.public_ip_address_id
       primary                                            = ip.value.primary
     }
+  }
+  timeouts {
+    read   = var.timeouts.read
+    create = var.timeouts.create
+    update = var.timeouts.update
+    delete = var.timeouts.delete
   }
   tags = module.label.tags
 }

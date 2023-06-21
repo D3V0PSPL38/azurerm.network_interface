@@ -10,7 +10,6 @@ No requirements.
 | Name | Version |
 |------|---------|
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.61.0 |
-| <a name="provider_time"></a> [time](#provider\_time) | 0.9.1 |
 
 ## Modules
 
@@ -24,7 +23,6 @@ No requirements.
 | Name | Type |
 |------|------|
 | [azurerm_network_interface.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface) | resource |
-| [time_static.deploy_date](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/static) | resource |
 
 ## Inputs
 
@@ -64,8 +62,23 @@ No requirements.
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | [Optional] The ID of the subnet to associate with the network interface. Changing this forces a new resource to be created. | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Additional tags (e.g. `{'BusinessUnit': 'XYZ'}`).<br>Neither the tag keys nor the tag values will be modified by this module. | `map(string)` | `{}` | no |
 | <a name="input_tenant"></a> [tenant](#input\_tenant) | ID element \_(Rarely used, not included by default)\_. A customer identifier, indicating who this instance of a resource is for | `string` | `null` | no |
+| <a name="input_timeouts"></a> [timeouts](#input\_timeouts) | [Optional] The timeouts block allows you to specify timeouts for certain actions | <pre>object({<br>    create = optional(string)<br>    read   = optional(string)<br>    update = optional(string)<br>    delete = optional(string)<br>  })</pre> | <pre>{<br>  "create": "30m",<br>  "delete": "30m",<br>  "read": "30m",<br>  "update": "30m"<br>}</pre> | no |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_applied_dns_servers"></a> [applied\_dns\_servers](#output\_applied\_dns\_servers) | [Output] List of DNS servers applied to the specified Network Interface. |
+| <a name="output_dns_servers"></a> [dns\_servers](#output\_dns\_servers) | [Output] The list of DNS servers used by the specified Network Interface. |
+| <a name="output_enable_accelerated_networking"></a> [enable\_accelerated\_networking](#output\_enable\_accelerated\_networking) | [Output] Indicates if accelerated networking is set on the specified Network Interface. |
+| <a name="output_enable_ip_forwarding"></a> [enable\_ip\_forwarding](#output\_enable\_ip\_forwarding) | [Output] Indicate if IP forwarding is set on the specified Network Interface. |
+| <a name="output_id"></a> [id](#output\_id) | [Output] The ID of the Network Interface. |
+| <a name="output_internal_dns_label_name"></a> [internal\_dns\_label\_name](#output\_internal\_dns\_label\_name) | [Output] The internal DNS name label of the specified Network Interface. |
+| <a name="output_ip_configation"></a> [ip\_configation](#output\_ip\_configation) | [Output] ip\_configuration block as defined in the azurerm\_network\_interface resource. |
+| <a name="output_location"></a> [location](#output\_location) | [Output] The location of the specified Network Interface. |
+| <a name="output_mac_address"></a> [mac\_address](#output\_mac\_address) | [Output] The MAC address used by the specified Network Interface. |
+| <a name="output_network_security_group_id"></a> [network\_security\_group\_id](#output\_network\_security\_group\_id) | [Output] The ID of the network security group associated to the specified Network Interface. |
+| <a name="output_private_ip_address"></a> [private\_ip\_address](#output\_private\_ip\_address) | [Output] The primary private IP address associated to the specified Network Interface. |
+| <a name="output_private_ip_addresses"></a> [private\_ip\_addresses](#output\_private\_ip\_addresses) | [Output] The list of private IP addresses associates to the specified Network Interface. |
+| <a name="output_tags"></a> [tags](#output\_tags) | [Output] List the tags associated to the specified Network Interface. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
